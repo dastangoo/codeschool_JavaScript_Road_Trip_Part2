@@ -49,38 +49,56 @@
 // }
 
 
+var passengerlist = [];
+console.log(passengerlist);
+addPassenger("A B", passengerlist);
+console.log(passengerlist);
+addPassenger("C D", passengerlist);
+console.log(passengerlist);
+addPassenger("E F", passengerlist);
+console.log(passengerlist);
+addPassenger("G H", passengerlist);
+console.log(passengerlist);
+
 function makeList() {
   
 }
 
+function addPassenger(name, list) {
+  if (list.length == 0) {
+    list.push(name);
+  } else {
+    for (var i = 0; i < list.length; i++) {
+      if (list[i] == undefined) {
+        list[i] = name;
+        return list;
+      } else if (i == list.length - 1) {
+        list.push(name);
+        return list;
+      }
+    }
+  }
+}
 
-var arr = ['a', 'b', 'c'];
-console.log(arr);
+function deletePassenger(name, list) {
+  if (list.length === 0) {
+    console.log("List is empty, dude!");
+  } else {
+    for (var i = 0; i < list.length; i++) {
+      if (list[i] === name) {
+        list[i] = undefined;
+        return list;
+      } else if (i === list.length - 1) {
+        console.log("Passenger not found!");
+      }
+    }
+  }
+  return list;
+}
 
-arr.push('d');
-console.log(arr);
+deletePassenger("A B", passengerlist);
+console.log(passengerlist);
+addPassenger("X Y", passengerlist);
+console.log(passengerlist);
+deletePassenger("A B", passengerlist);
 
-arr.pop();
-console.log(arr);
-
-arr.shift();
-console.log(arr);
-
-arr.unshift('a');
-console.log(arr);
-
-var comboArray1 = ["One", "fish", 2, "fish"];
-console.log(comboArray1);
-
-var poisson = "fish";
-console.log(poisson);
-
-var comboArray2 = ["One", poisson, "Blue", poisson]
-console.log(comboArray2);
-
-var arrayOfArrays = [comboArray1, comboArray2];
-console.log(arrayOfArrays);
-
-console.log(arrayOfArrays[1]);
-console.log(arrayOfArrays[1][0]);
-console.log(arrayOfArrays[0][1]);
